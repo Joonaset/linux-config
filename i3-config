@@ -1,0 +1,165 @@
+# vim: filetype=i3
+
+# #---Basic Definitions---# #
+# Needed for i3-gaps
+for_window [class="^.*"] border pixel 2
+gaps inner 15
+gaps outer 20
+set $mod Mod4
+focus_follows_mouse 0
+
+# #---Dropdown Windows---# #
+
+
+# General dropdown window traits. The order can matter.
+floating_minimum_size 100 x 100
+floating_maximum_size 1920 x 1080
+for_window [instance="guiltygearxrd.exe"] floating enable resize set 1920 1080, move position center
+for_window [instance="dropdown_*"] floating enable
+for_window [instance="dropdown_*"] move scratchpad
+for_window [instance="dropdown_*"] sticky enable
+for_window [instance="dropdown_*"] scratchpad show
+for_window [instance="dropdown_tmuxdd"] resize set 625 450
+for_window [instance="dropdown_dropdowncalc"] resize set 800 300
+for_window [instance="dropdown_tmuxdd"] border pixel 3
+for_window [instance="dropdown_dropdowncalc"] border pixel 2
+for_window [instance="dropdown_*"] move position center
+
+# #---Starting External Scripts---# #
+# Composite manager:
+exec --no-startup-id xcompmgr
+# Podboat automatic queue and download
+exec_always --no-startup-id podentr
+
+bar {
+	font pango:mono 10
+	status_command i3blocks
+	position top
+	mode dock
+	modifier None
+}
+
+# #---Basic Bindings---# #
+bindsym $mod+Shift+space 	floating toggle
+
+# #---Letter Key Bindings---# #
+bindsym $mod+space		[con_id="__focused__" instance="^(?!dropdown_).*$"] kill
+
+bindsym $mod+Shift+r		exec --no-startup-id winresize
+
+bindsym $mod+o			sticky toggle
+
+bindsym $mod+f			fullscreen toggle
+
+bindsym $mod+h			focus left
+bindsym $mod+Shift+h		move left 30
+
+bindsym $mod+t			focus down
+bindsym $mod+Shift+j		move down 30
+
+bindsym $mod+n			focus up
+bindsym $mod+Shift+k		move up 30
+
+bindsym $mod+s			focus right
+bindsym $mod+Shift+s		move right 30
+
+bindsym $mod+z			gaps outer current plus 5
+bindsym $mod+Shift+z		gaps outer current minus 5
+
+
+bindsym $mod+x			exec --no-startup-id mpc pause; exec --no-startup-id pauseallmpv ; exec --no-startup-id i3lock -e -f -c 1d2021
+
+#bindsym $mod+b			bar mode toggle
+bindsym $mod+Shift+b		floating toggle
+
+bindsym $mod+m 			exec --no-startup-id $term -e ncmpcpp
+bindsym $mod+Shift+m		exec --no-startup-id lmc mute
+
+# #---Workspace Bindings---# #
+bindsym $mod+Tab		workspace back_and_forth
+bindsym $mod+equal		split horizontal ;; exec --no-startup-id kitty
+bindsym $mod+slash		split vertical ;; exec --no-startup-id kitty
+
+set $ws1 "1: www"
+set $ws2 "2"
+set $ws3 "3: steam"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10: comms"
+
+# Workspace navigation
+bindsym $mod+b		workspace prev
+bindsym $mod+l      	workspace next
+bindsym $mod+1		workspace $ws1
+bindsym $mod+2		workspace $ws2
+bindsym $mod+3		workspace $ws3
+bindsym $mod+4		workspace $ws4
+bindsym $mod+5		workspace $ws5
+bindsym $mod+6		workspace $ws6
+bindsym $mod+7		workspace $ws7
+bindsym $mod+8		workspace $ws8
+bindsym $mod+9		workspace $ws9
+bindsym $mod+0		workspace $ws10
+
+## Multi-monitor setup ##
+
+workspace $ws1 output DP-4
+workspace $ws2 output DP-4
+workspace $ws3 output DP-4
+workspace $ws4 output DP-4
+workspace $ws5 output DP-4
+
+workspace $ws8 output DP-0
+workspace $ws9 output DP-0
+workspace $ws10 output DP-0
+
+# move focused container to workspace
+bindsym $mod+Shift+1	move container to workspace $ws1
+bindsym $mod+Shift+2	move container to workspace $ws2
+bindsym $mod+Shift+3	move container to workspace $ws3
+bindsym $mod+Shift+4	move container to workspace $ws4
+bindsym $mod+Shift+5	move container to workspace $ws5
+bindsym $mod+Shift+6	move container to workspace $ws6
+bindsym $mod+Shift+7	move container to workspace $ws7
+bindsym $mod+Shift+8	move container to workspace $ws8
+bindsym $mod+Shift+9	move container to workspace $ws9
+bindsym $mod+Shift+0	move container to workspace $ws10
+
+for_window [class="Pinentry"] sticky enable
+for_window [class="sent"] border pixel 0px
+for_window [title="GIMP Startup"] move workspace $ws5
+for_window [class="qutebrowser"] move workspace $ws1
+for_window [class="mumble"] move workspace $ws10
+for_window [class="discord"] move workspace $ws10
+for_window [class="telegram-desktop"] move workspace $ws10
+for_window [class="Steam"] move workspace $ws3
+for_window [class="Gimp"] move workspace $ws5
+for_window [window_role="GtkFileChooserDialog"] resize set 800 600
+for_window [window_role="GtkFileChooserDialog"] move position center
+for_window [title="Default - Wine desktop"] floating enable
+
+# Bindings to make the webcam float and stick.
+for_window [title="mpvfloat"] floating enable
+for_window [title="mpvfloat"] sticky enable
+for_window [title="mpvfloat"] border pixel 0
+no_focus [title="mpvfloat"]
+
+# #---Function Buttons---# #
+bindsym $mod+F1		exec --no-startup-id groff -kejpt -mom ~/.local/share/larbs/readme.mom -Tpdf | zathura -
+bindsym $mod+F2		restart
+
+# #---Window Moving---# #
+bindsym $mod+Shift+slash	exec --no-startup-id i3resize left
+bindsym $mod+Shift+equal	exec --no-startup-id i3resize right
+bindsym $mod+Shift+backslash	exec --no-startup-id i3resize down
+bindsym $mod+Shift+minus	exec --no-startup-id i3resize up
+bindsym $mod+Shift+Left		move left
+bindsym $mod+Shift+Down		move down
+bindsym $mod+Shift+Up		move up
+bindsym $mod+Shift+Right 	move right
+
+

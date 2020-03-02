@@ -13,7 +13,6 @@ Plug 'scrooloose/nerdtree'
 Plug 'junegunn/goyo.vim'
 Plug 'PotatoesMaster/i3-vim-syntax'
 Plug 'jreybert/vimagit'
-Plug 'LukeSmithxyz/vimling'
 Plug 'vimwiki/vimwiki'
 Plug 'bling/vim-airline'
 Plug 'tpope/vim-commentary'
@@ -22,9 +21,11 @@ Plug 'kovetskiy/sxhkd-vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'vimwiki/vimwiki'
 Plug 'dense-analysis/ale'
+Plug 'morhetz/gruvbox'
 call plug#end()
 
-set bg=light
+colorscheme gruvbox
+set bg=dark
 set go=a
 set mouse=a
 set nohlsearch
@@ -250,4 +251,5 @@ set foldmethod=syntax
 """ javascript
 	autocmd FileType javascript set softtabstop=2 tabstop=2 shiftwidth=2 expandtab
 
-
+""" shell scripting
+	autocmd filetype sh inoremap <leader>cv command -v ohjela >/dev/null 2>&1 \|\| { echo >&2 "ohjelma not installed. Aborting."; exit 1; }<esc>0/ohjelma<CR>:MultipleCursorsFind<Space>ohjlema<CR>c
