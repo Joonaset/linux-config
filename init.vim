@@ -22,9 +22,11 @@ Plug 'kovetskiy/sxhkd-vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'vimwiki/vimwiki'
 Plug 'dense-analysis/ale'
+Plug 'morhetz/gruvbox'
 call plug#end()
 
-set bg=light
+colorscheme gruvbox
+set bg=dark
 set go=a
 set mouse=a
 set nohlsearch
@@ -166,8 +168,12 @@ set foldmethod=syntax
 	autocmd FileType tex inoremap ,rn (\ref{})<++><Esc>F}i
 	autocmd FileType tex inoremap <leader>frac \frac{}{<++>}<++><Esc>10hi
 	autocmd FileType tex inoremap <leader>bin \binom{}{<++>}<++><Esc>10hi
+	autocmd FileType tex inoremap <leader>mat \[ \]<Esc>2hi
 
 """HTML
+
+	autocmd FileType html set softtabstop=2 tabstop=2 shiftwidth=2 expandtab
+
 	autocmd FileType html inoremap ,b <b></b><Space><++><Esc>FbT>i
 	autocmd FileType html inoremap ,it <em></em><Space><++><Esc>FeT>i
 	autocmd FileType html inoremap ,1 <h1></h1><Enter><Enter><++><Esc>2kf<i
@@ -249,5 +255,9 @@ set foldmethod=syntax
 
 """ javascript
 	autocmd FileType javascript set softtabstop=2 tabstop=2 shiftwidth=2 expandtab
+	autocmd FileType javascript inoremap <leader>req const DELRNO = require('DELRNO')<Esc>0:MultipleCursorsFind<Space>DELRNO<Enter>c
+	autocmd FileType javascript nnoremap <leader>c :!node <C-r>%<Enter>
 
+""" python
+    autocmd FileType python set softtabstop=4 tabstop=4 shiftwidth=4 expandtab
 
