@@ -167,8 +167,12 @@ set foldmethod=syntax
 	autocmd FileType tex inoremap ,rn (\ref{})<++><Esc>F}i
 	autocmd FileType tex inoremap <leader>frac \frac{}{<++>}<++><Esc>10hi
 	autocmd FileType tex inoremap <leader>bin \binom{}{<++>}<++><Esc>10hi
+	autocmd FileType tex inoremap <leader>mat \[ \]<Esc>2hi
 
 """HTML
+
+	autocmd FileType html set softtabstop=2 tabstop=2 shiftwidth=2 expandtab
+
 	autocmd FileType html inoremap ,b <b></b><Space><++><Esc>FbT>i
 	autocmd FileType html inoremap ,it <em></em><Space><++><Esc>FeT>i
 	autocmd FileType html inoremap ,1 <h1></h1><Enter><Enter><++><Esc>2kf<i
@@ -250,6 +254,12 @@ set foldmethod=syntax
 
 """ javascript
 	autocmd FileType javascript set softtabstop=2 tabstop=2 shiftwidth=2 expandtab
+	autocmd FileType javascript inoremap <leader>req const DELRNO = require('DELRNO')<Esc>0:MultipleCursorsFind<Space>DELRNO<Enter>c
+	autocmd FileType javascript nnoremap <leader>c :!node <C-r>%<Enter>
 
 """ shell scripting
 	autocmd filetype sh inoremap <leader>cv command -v ohjela >/dev/null 2>&1 \|\| { echo >&2 "ohjelma not installed. Aborting."; exit 1; }<esc>0/ohjelma<CR>:MultipleCursorsFind<Space>ohjlema<CR>c
+
+""" python
+    autocmd FileType python set softtabstop=4 tabstop=4 shiftwidth=4 expandtab
+
