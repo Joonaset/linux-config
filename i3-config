@@ -135,6 +135,7 @@ for_window [title="GIMP Startup"] move workspace $ws5
 for_window [class="qutebrowser"] move workspace $ws1
 for_window [class="mumble"] move workspace $ws10
 for_window [class="discord"] move workspace $ws10
+for_window [class="pcars64.exe"] move workspace $ws8
 for_window [class="telegram-desktop"] move workspace $ws10
 for_window [class="Steam"] move workspace $ws3
 for_window [class="Gimp"] move workspace $ws5
