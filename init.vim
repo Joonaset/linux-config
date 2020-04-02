@@ -22,6 +22,8 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'vimwiki/vimwiki'
 Plug 'dense-analysis/ale'
 Plug 'morhetz/gruvbox'
+Plug 'ctrlpvim/ctrlp.vim'
+
 call plug#end()
 
 colorscheme gruvbox
@@ -34,6 +36,7 @@ set foldmethod=syntax
 
 " Some basics:
 	nnoremap c "_c
+	noremap <leader>0 <esc>:wq<CR>
 	set nocompatible
 	filetype plugin on
 	syntax on
@@ -66,6 +69,10 @@ set foldmethod=syntax
 	imap <leader>i <esc>:call ToggleIPA()<CR>a
 	nm <leader>q :call ToggleProse()<CR>
 
+" CtrlP:
+    nnoremap <leader>bu :CtrlPBuffer<CR>
+	nnoremap <leader>' :CtrlP<CR>
+
 " Shortcutting split navigation, saving a keypress:
 	map <C-h> <C-w>h
 	map <C-j> <C-w>j
@@ -76,7 +83,7 @@ set foldmethod=syntax
 	map <leader>s :!clear && shellcheck %<CR>
 
 " Open my bibliography file in split
-	map <leader>b :vsp<space>$BIB<CR>
+	map <leader>bi :vsp<space>$BIB<CR>
 	map <leader>r :vsp<space>$REFER<CR>
 
 " Replace all is aliased to S.
@@ -256,6 +263,8 @@ set foldmethod=syntax
 	autocmd FileType javascript set softtabstop=2 tabstop=2 shiftwidth=2 expandtab
 	autocmd FileType javascript inoremap <leader>req const DELRNO = require('DELRNO')<Esc>0:MultipleCursorsFind<Space>DELRNO<Enter>c
 	autocmd FileType javascript nnoremap <leader>c :!node <C-r>%<Enter>
+	autocmd FileType javascript :normal G=gg
+	autocmd BufWritePre *.js :normal G=gg
 
 """ shell scripting
 	autocmd filetype sh inoremap <leader>cv command -v ohjela >/dev/null 2>&1 \|\| { echo >&2 "ohjelma not installed. Aborting."; exit 1; }<esc>0/ohjelma<CR>:MultipleCursorsFind<Space>ohjlema<CR>c
