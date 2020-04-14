@@ -79,9 +79,6 @@ set foldmethod=syntax
 	map <C-k> <C-w>k
 	map <C-l> <C-w>l
 
-" Check file in shellcheck:
-	map <leader>s :!clear && shellcheck %<CR>
-
 " Open my bibliography file in split
 	map <leader>bi :vsp<space>$BIB<CR>
 	map <leader>r :vsp<space>$REFER<CR>
@@ -134,6 +131,7 @@ set foldmethod=syntax
 	cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
 
 """LATEX
+autocmd BufNewFile *.tex 0r ~/.config/nvim/templates/tex.template
 	" Word count:
 	autocmd FileType tex map <leader>w :w !detex \| wc -w<CR>
 	" Code snippets
@@ -268,7 +266,11 @@ set foldmethod=syntax
 
 """ shell scripting
 	autocmd filetype sh inoremap <leader>cv command -v ohjela >/dev/null 2>&1 \|\| { echo >&2 "ohjelma not installed. Aborting."; exit 1; }<esc>0/ohjelma<CR>:MultipleCursorsFind<Space>ohjlema<CR>c
+	autocmd BufNewFile *.sh 0r ~/.config/nvim/templates/bash.template
 
+" Check file in shellcheck:
+	autocmd bufWritePre *.sh !shellcheck %
 """ python
     autocmd FileType python set softtabstop=4 tabstop=4 shiftwidth=4 expandtab
+
 
