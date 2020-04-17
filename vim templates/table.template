@@ -1,0 +1,7 @@
+\begin{tabular}{ c c c }
+    <++> & <++> & <++> \\
+  \centering
+  \includegraphics[width=\textwidth]{<++>}
+  \caption{<++>}
+  \label{tab:<++>}
+\end{tabular}

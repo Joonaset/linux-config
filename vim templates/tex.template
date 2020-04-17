@@ -1,0 +1,21 @@
+\documentclass{article}
+\author{Joonas Taivalmaa}
+\title{<++>}
+
+%\usepackage{amsmath} % for math notations
+%\usepackage{gensymb} % also for math
+%\usepackage{hyperref} % urls and referrals
+%\usepackage{booktabs} %
+%\usepackage{multicol} % columns
+%\usepackage{graphicx} % images
+%\usepackage{caption} % images
+%\captionsetup[figure]{name=Kuva}
+%\usepackage[backend=biber]{biblatex} % biblatex
+%\addbibresource{/home/flatline/Documents/LaTeX/uni.bib} % path to uni.bib
+
+
+
+\begin{document}
+\maketitle{}
+
+\end{document}

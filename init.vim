@@ -50,7 +50,7 @@ set foldmethod=syntax
 	autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " Goyo plugin makes text more readable when writing prose:
-	map <leader>f :Goyo \| set bg=light \| set linebreak<CR>
+"	map <leader>f :Goyo \| set bg=light \| set linebreak<CR>
 
 " Spell-check set to <leader>o, 'o' for 'orthography':
 	map <leader>o :setlocal spell! spelllang=en_us<CR>
@@ -150,7 +150,7 @@ autocmd BufNewFile *.tex 0r ~/.config/nvim/templates/tex.template
 	autocmd FileType tex inoremap ,ul \begin{itemize}<Enter><Enter>\end{itemize}<Enter><Enter><++><Esc>3kA\item<Space>
 	autocmd FileType tex inoremap ,li <Enter>\item<Space>
 	autocmd FileType tex inoremap ,ref \ref{}<Space><++><Esc>T{i
-	autocmd FileType tex inoremap ,tab \begin{tabular}<Enter><++><Enter>\end{tabular}<Enter><Enter><++><Esc>4kA{}<Esc>i
+	autocmd FileType tex inoremap ,lb \label{}<Space><++><Esc>T{i
 	autocmd FileType tex inoremap ,ot \begin{tableau}<Enter>\inp{<++>}<Tab>\const{<++>}<Tab><++><Enter><++><Enter>\end{tableau}<Enter><Enter><++><Esc>5kA{}<Esc>i
 	autocmd FileType tex inoremap ,can \cand{}<Tab><++><Esc>T{i
 	autocmd FileType tex inoremap ,con \const{}<Tab><++><Esc>T{i
@@ -173,6 +173,10 @@ autocmd BufNewFile *.tex 0r ~/.config/nvim/templates/tex.template
 	autocmd FileType tex inoremap <leader>frac \frac{}{<++>}<++><Esc>10hi
 	autocmd FileType tex inoremap <leader>bin \binom{}{<++>}<++><Esc>10hi
 	autocmd FileType tex inoremap <leader>mat \[ \]<Esc>2hi
+    autocmd FileType tex inoremap <leader>fg <Esc>:r ~/.config/nvim/templates/figure.template<CR>
+    autocmd FileType tex inoremap <leader>fg <Esc>:r ~/.config/nvim/templates/figure.template<CR>
+    autocmd FileType tex inoremap <leader>tab <Esc>:r ~/.config/nvim/templates/table.template<CR>
+
 
 """HTML
 
@@ -263,6 +267,9 @@ autocmd BufNewFile *.tex 0r ~/.config/nvim/templates/tex.template
 	autocmd FileType javascript nnoremap <leader>c :!node <C-r>%<Enter>
 	autocmd FileType javascript :normal G=gg
 	autocmd BufWritePre *.js :normal G=gg
+""" PHP
+	autocmd FileType javascript set softtabstop=2 tabstop=2 shiftwidth=2 expandtab
+    autocmd FileType php inoremap <leader>cl $clean[""]<esc>hi
 
 """ shell scripting
 	autocmd filetype sh inoremap <leader>cv command -v ohjela >/dev/null 2>&1 \|\| { echo >&2 "ohjelma not installed. Aborting."; exit 1; }<esc>0/ohjelma<CR>:MultipleCursorsFind<Space>ohjlema<CR>c
