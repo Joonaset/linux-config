@@ -130,6 +130,11 @@ set foldmethod=syntax
 " Save file as sudo on files that require root permission
 	cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
 
+" surround with quotes, maybe other symbols later
+nnoremap <leader>" ciw"<c-r>""<esc>
+inoremap <leader>" <Esc>ciw"<c-r>""<Esc>
+vnoremap <leader>" c"<c-r>""<Esc>
+
 """LATEX
 autocmd BufNewFile *.tex 0r ~/.config/nvim/templates/tex.template
 	" Word count:
