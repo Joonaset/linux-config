@@ -62,6 +62,22 @@ set foldmethod=syntax
 	map <leader>n :NERDTreeToggle<CR>
 	autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
+" Space menu
+    nnoremap <space><space> :
+	nnoremap <space>fs :write<CR>
+	nnoremap <space>ff :NERDTreeToggel<CR>
+	nnoremap <space>qq :qa!<cr>
+	nnoremap <space>wn <c-w>w
+	nnoremap <space>wl <c-w>l
+	nnoremap <space>wh <c-w>h
+	nnoremap <space>wj <c-w>j
+	nnoremap <space>wk <c-w>k
+	nnoremap <space>qs :wq<CR>
+	nnoremap <space>bn :bn<CR>
+	nnoremap <space>bp :bp<CR>
+
+
+
 " vimling:
 	nm <leader>d :call ToggleDeadKeys()<CR>
 	imap <leader>d <esc>:call ToggleDeadKeys()<CR>a
