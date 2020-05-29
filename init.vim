@@ -65,7 +65,7 @@ set foldmethod=syntax
 " Space menu
     nnoremap <space><space> :
 	nnoremap <space>fs :write<CR>
-	nnoremap <space>ff :NERDTreeToggel<CR>
+	nnoremap <space>ff :NERDTreeToggle<CR>
 	nnoremap <space>qq :qa!<cr>
 	nnoremap <space>wn <c-w>w
 	nnoremap <space>wl <c-w>l
