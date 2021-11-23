@@ -1,0 +1,32 @@
+!! Keymap intended to use with my moonlander keyboard layout.
+keycode 9 = Super_L
+keycode 8 = Escape
+keycode 108 = Mode_switch
+keycode 20 = slash question equal
+keycode  10 = 1                 exclam              onesuperior             exclamdown
+keycode  11 = 2                 at                  twosuperior             enfilledcircbullet
+keycode  12 = 3                 numbersign          threesuperior           sterling
+keycode  13 = 4                 dollar              EuroSign                onequarter
+keycode  14 = 5                 percent             onehalf                 threequarters
+keycode  15 = 6                 asciicircum         dead_circumflex         radical
+keycode  16 = 7                 ampersand           paragraph               section
+keycode  17 = 8                 asterisk            infinity                multiply
+keycode  18 = 9                 parenleft           dagger                  U2248
+keycode  19 = 0                 parenright          degree                  notequal
+
+keycode 49 = grave		asciitilde
+keycode  51 = apostrophe        quotedbl            	leftdoublequotemark
+keycode  59 = comma             semicolon           	less
+
+keycode 60 = period            colon             	greater
+
+
+keycode 26 = e			E			braceleft
+keycode 28 = t			T			braceright
+keycode 39 = s			S			backslash
+keycode  57 = n        		N            		equal
+keycode  61 = minus       	underscore            	bar
+keycode  30 = u       	U            	bracketleft
+keycode  43 = h       	H            	bracketright
+keycode 45 = k		K	parenleft
+keycode 58 = m		M	parenright
